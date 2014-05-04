@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>C311492C-6651-4992-92F2-AD5FB7AEAE47</string>
+	<key>IDESourceControlProjectName</key>
+	<string>QualityTime</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>70C1F130-C3D9-49C9-898D-DEF7A55CFBA0</key>
+		<string>https://github.com/mcritz/QualityTime.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>QualityTime/QualityTime.xcodeproj/project.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>70C1F130-C3D9-49C9-898D-DEF7A55CFBA0</key>
+		<string>../../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/mcritz/QualityTime.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>110</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>70C1F130-C3D9-49C9-898D-DEF7A55CFBA0</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>70C1F130-C3D9-49C9-898D-DEF7A55CFBA0</string>
+			<key>IDESourceControlWCCName</key>
+			<string>QualityTime</string>
+		</dict>
+	</array>
+</dict>
+</plist>
