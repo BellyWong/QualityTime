@@ -26,6 +26,8 @@
 		0F5B97C51916CD2700C39256 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0F5B979D1916CD2700C39256 /* CoreData.framework */; };
 		0F5B97CD1916CD2700C39256 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 0F5B97CB1916CD2700C39256 /* InfoPlist.strings */; };
 		0F5B97CF1916CD2700C39256 /* QualityTimeTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F5B97CE1916CD2700C39256 /* QualityTimeTests.m */; };
+		0F5B97DA1916CE3500C39256 /* QTLocationLogCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F5B97D91916CE3500C39256 /* QTLocationLogCell.m */; };
+		0F5B97DD1916D50F00C39256 /* QTLocationEvent.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F5B97DC1916D50F00C39256 /* QTLocationEvent.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,6 +65,10 @@
 		0F5B97CA1916CD2700C39256 /* QualityTimeTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "QualityTimeTests-Info.plist"; sourceTree = "<group>"; };
 		0F5B97CC1916CD2700C39256 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		0F5B97CE1916CD2700C39256 /* QualityTimeTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QualityTimeTests.m; sourceTree = "<group>"; };
+		0F5B97D81916CE3500C39256 /* QTLocationLogCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QTLocationLogCell.h; sourceTree = "<group>"; };
+		0F5B97D91916CE3500C39256 /* QTLocationLogCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QTLocationLogCell.m; sourceTree = "<group>"; };
+		0F5B97DB1916D50F00C39256 /* QTLocationEvent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QTLocationEvent.h; sourceTree = "<group>"; };
+		0F5B97DC1916D50F00C39256 /* QTLocationEvent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QTLocationEvent.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -125,8 +131,11 @@
 		0F5B979F1916CD2700C39256 /* QualityTime */ = {
 			isa = PBXGroup;
 			children = (
+				0F5B97DE1916D51D00C39256 /* Model */,
 				0F5B97A81916CD2700C39256 /* QTAppDelegate.h */,
 				0F5B97A91916CD2700C39256 /* QTAppDelegate.m */,
+				0F5B97D81916CE3500C39256 /* QTLocationLogCell.h */,
+				0F5B97D91916CE3500C39256 /* QTLocationLogCell.m */,
 				0F5B97AB1916CD2700C39256 /* Main_iPhone.storyboard */,
 				0F5B97AE1916CD2700C39256 /* Main_iPad.storyboard */,
 				0F5B97B41916CD2700C39256 /* QTMasterViewController.h */,
@@ -167,6 +176,15 @@
 				0F5B97CB1916CD2700C39256 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		0F5B97DE1916D51D00C39256 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				0F5B97DB1916D50F00C39256 /* QTLocationEvent.h */,
+				0F5B97DC1916D50F00C39256 /* QTLocationEvent.m */,
+			);
+			name = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -270,9 +288,11 @@
 			files = (
 				0F5B97A61916CD2700C39256 /* main.m in Sources */,
 				0F5B97AA1916CD2700C39256 /* QTAppDelegate.m in Sources */,
+				0F5B97DA1916CE3500C39256 /* QTLocationLogCell.m in Sources */,
 				0F5B97B31916CD2700C39256 /* QualityTime.xcdatamodeld in Sources */,
 				0F5B97B91916CD2700C39256 /* QTDetailViewController.m in Sources */,
 				0F5B97B61916CD2700C39256 /* QTMasterViewController.m in Sources */,
+				0F5B97DD1916D50F00C39256 /* QTLocationEvent.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

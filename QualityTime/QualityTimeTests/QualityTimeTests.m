@@ -7,6 +7,7 @@
 //
 
 #import <XCTest/XCTest.h>
+#import "QTLocationEvent.h"
 
 @interface QualityTimeTests : XCTestCase
 
@@ -26,9 +27,16 @@
     [super tearDown];
 }
 
-- (void)testExample
+- (void)testQtLocationEvent
 {
-    XCTFail(@"No implementation for \"%s\"", __PRETTY_FUNCTION__);
+	QTLocationEvent *failLocationEvent = [[QTLocationEvent alloc] initWithEventType:kLocationEntered andLocation:nil];
+	XCTAssertFalse(failLocationEvent, @"shouldn't return anything if no location");
+	
+	CLLocation *locationToTest = [[CLLocation alloc] init];
+	QTLocationEvent *eventToTest = [[QTLocationEvent alloc] initWithEventType:kLocationEntered andLocation:locationToTest];
+	XCTAssertTrue([eventToTest isKindOfClass:[QTLocationEvent class]], @"returns an object");
+	XCTAssertTrue([eventToTest.timeStamp isKindOfClass:[NSDate class]], @"has a valid timestamp");
+	XCTAssertTrue([eventToTest.eventLocation isEqual:locationToTest], @"returns a valid location");
 }
 
 @end
