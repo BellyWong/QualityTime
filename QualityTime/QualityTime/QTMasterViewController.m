@@ -10,6 +10,8 @@
 
 #import "QTDetailViewController.h"
 
+#import "QTLocationEvent.h"
+
 @interface QTMasterViewController ()
 - (void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath;
 @end
@@ -51,6 +53,9 @@
     // If appropriate, configure the new managed object.
     // Normally you should use accessor methods, but using KVC here avoids the need to add a custom class to the template.
     [newManagedObject setValue:[NSDate date] forKey:@"timeStamp"];
+	[newManagedObject setValue:@(10.25) forKey:@"locationLat"];
+	[newManagedObject setValue:@(10.25) forKey:@"locationLong"];
+	[newManagedObject setValue:@(1) forKey:@"eventType"];
     
     // Save the context.
     NSError *error = nil;
@@ -137,7 +142,8 @@
     
     NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
     // Edit the entity name as appropriate.
-    NSEntityDescription *entity = [NSEntityDescription entityForName:@"Event" inManagedObjectContext:self.managedObjectContext];
+    NSEntityDescription *entity = [NSEntityDescription entityForName:@"LocationEvent"
+											  inManagedObjectContext:self.managedObjectContext];
     [fetchRequest setEntity:entity];
     
     // Set the batch size to a suitable number.

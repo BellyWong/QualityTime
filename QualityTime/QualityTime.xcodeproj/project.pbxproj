@@ -131,17 +131,11 @@
 		0F5B979F1916CD2700C39256 /* QualityTime */ = {
 			isa = PBXGroup;
 			children = (
-				0F5B97DE1916D51D00C39256 /* Model */,
 				0F5B97A81916CD2700C39256 /* QTAppDelegate.h */,
 				0F5B97A91916CD2700C39256 /* QTAppDelegate.m */,
-				0F5B97D81916CE3500C39256 /* QTLocationLogCell.h */,
-				0F5B97D91916CE3500C39256 /* QTLocationLogCell.m */,
-				0F5B97AB1916CD2700C39256 /* Main_iPhone.storyboard */,
-				0F5B97AE1916CD2700C39256 /* Main_iPad.storyboard */,
-				0F5B97B41916CD2700C39256 /* QTMasterViewController.h */,
-				0F5B97B51916CD2700C39256 /* QTMasterViewController.m */,
-				0F5B97B71916CD2700C39256 /* QTDetailViewController.h */,
-				0F5B97B81916CD2700C39256 /* QTDetailViewController.m */,
+				0F5B97DE1916D51D00C39256 /* Model */,
+				0F5B97DF1916E32200C39256 /* View */,
+				0F5B97E01916E34900C39256 /* Controller */,
 				0F5B97BA1916CD2700C39256 /* Images.xcassets */,
 				0F5B97B11916CD2700C39256 /* QualityTime.xcdatamodeld */,
 				0F5B97A01916CD2700C39256 /* Supporting Files */,
@@ -185,6 +179,28 @@
 				0F5B97DC1916D50F00C39256 /* QTLocationEvent.m */,
 			);
 			name = Model;
+			sourceTree = "<group>";
+		};
+		0F5B97DF1916E32200C39256 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				0F5B97D81916CE3500C39256 /* QTLocationLogCell.h */,
+				0F5B97D91916CE3500C39256 /* QTLocationLogCell.m */,
+				0F5B97AB1916CD2700C39256 /* Main_iPhone.storyboard */,
+				0F5B97AE1916CD2700C39256 /* Main_iPad.storyboard */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		0F5B97E01916E34900C39256 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				0F5B97B41916CD2700C39256 /* QTMasterViewController.h */,
+				0F5B97B51916CD2700C39256 /* QTMasterViewController.m */,
+				0F5B97B71916CD2700C39256 /* QTDetailViewController.h */,
+				0F5B97B81916CD2700C39256 /* QTDetailViewController.m */,
+			);
+			name = Controller;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
