@@ -18,8 +18,9 @@ typedef NS_ENUM(NSUInteger, EventType) {
 };
 @property (readonly)EventType eventType;
 
+@property (readonly)NSString *eventDescription;
 @property (nonatomic)CLLocation *eventLocation;
-@property (readonly)NSDate *timeStamp;
+@property (nonatomic)NSDate *timeStamp;
 - (QTLocationEvent *)initWithEventType:(EventType)eventType
 						   andLocation:(CLLocation *)eventLocation;
 

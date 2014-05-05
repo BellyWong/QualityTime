@@ -10,7 +10,6 @@
 
 @interface QTLocationEvent()
 @property (readwrite)EventType eventType;
-@property (readwrite)NSDate *timeStamp;
 @property (nonatomic)CLLocationManager *locationManager;
 @end
 
@@ -27,6 +26,22 @@
 	}
 	self.timeStamp = [NSDate date];
 	return self;
+}
+
+- (NSString *)eventDescription {
+	NSString *prettyDescription;
+	switch (_eventType) {
+		case kLocationEntered:
+			prettyDescription = NSLocalizedString(@"Arrived", @"Shown to user to denote the arrival at a location");
+			break;
+		case kLocationExited:
+			prettyDescription = NSLocalizedString(@"Departed", @"Shown to user to denote the departure from a location");
+		case kLocationUnknown:
+			prettyDescription = NSLocalizedString(@"At", @"Shonw to user to denote an ambiguous location event. Ex: Landing at an airport, but not really staying for vacation.");
+		default:
+			break;
+	}
+	return prettyDescription;
 }
 
 @end
