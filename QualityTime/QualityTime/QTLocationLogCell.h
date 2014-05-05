@@ -7,10 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "QTLocationEvent.h"
 
 @interface QTLocationLogCell : UITableViewCell
 
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
 @property (weak, nonatomic) IBOutlet UILabel *subtitleLabel;
+@property (weak, nonatomic) QTLocationEvent *locationEvent;
 
 @end

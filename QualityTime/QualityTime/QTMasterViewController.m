@@ -7,13 +7,12 @@
 //
 
 #import "QTMasterViewController.h"
-
 #import "QTDetailViewController.h"
-
 #import "QTLocationEvent.h"
+#import "QTLocationLogCell.h"
 
 @interface QTMasterViewController ()
-- (void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath;
+- (void)configureCell:(QTLocationLogCell *)cell atIndexPath:(NSIndexPath *)indexPath;
 @end
 
 @implementation QTMasterViewController
@@ -82,7 +81,8 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
+    QTLocationLogCell *cell = [tableView dequeueReusableCellWithIdentifier:@"QTLocationLogCell"
+															forIndexPath:indexPath];
 	[self configureCell:cell atIndexPath:indexPath];
     return cell;
 }
@@ -207,7 +207,7 @@
             break;
             
         case NSFetchedResultsChangeUpdate:
-            [self configureCell:[tableView cellForRowAtIndexPath:indexPath] atIndexPath:indexPath];
+            [self configureCell:(QTLocationLogCell *)[tableView cellForRowAtIndexPath:indexPath] atIndexPath:indexPath];
             break;
             
         case NSFetchedResultsChangeMove:
@@ -232,10 +232,17 @@
 }
  */
 
-- (void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath
+- (void)configureCell:(QTLocationLogCell *)cell atIndexPath:(NSIndexPath *)indexPath
 {
     NSManagedObject *object = [self.fetchedResultsController objectAtIndexPath:indexPath];
-    cell.textLabel.text = [[object valueForKey:@"timeStamp"] description];
+	EventType type = [[object valueForKey:@"eventType"] intValue];
+	double locLat = [[object valueForKey:@"locationLat"] doubleValue];
+	double locLong = [[object valueForKey:@"locationLong"] doubleValue];
+	
+	CLLocation *location = [[CLLocation alloc] initWithLatitude:locLat longitude:locLong];
+	QTLocationEvent *locationEvent = [[QTLocationEvent alloc] initWithEventType:type andLocation:location];
+	[cell setLocationEvent:locationEvent];
+	[cell setNeedsDisplay];
 }
 
 @end

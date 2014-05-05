@@ -10,4 +10,17 @@
 
 @implementation QTLocationLogCell
 
+- (QTLocationLogCell *)init {
+	self = [super init];
+	[self.titleLabel setText:@"OMG LOOK"];
+	[self.subtitleLabel setText:@"O.o"];
+	return self;
+}
+
+- (void)setLocationEvent:(QTLocationEvent *)locationEvent {
+	_locationEvent = locationEvent;
+	[self.titleLabel setText:@"zOMGz!"];
+	[self.subtitleLabel setText:@"its a subtitle!"];
+}
+
 @end
