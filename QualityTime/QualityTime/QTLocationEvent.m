@@ -10,20 +10,22 @@
 
 @interface QTLocationEvent()
 @property (readwrite)EventType eventType;
+@property (readwrite)NSDate *timeStamp;
 @property (nonatomic)CLLocationManager *locationManager;
 @end
 
 @implementation QTLocationEvent
 
 - (QTLocationEvent *)initWithEventType:(EventType)eventType
-						   andLocation:(CLLocation *)eventLocation {
+								atDate:(NSDate *)date
+						   forLocation:(CLLocation *)eventLocation {
 	self = [super init];
-	self.eventType = eventType;
 	if ([eventLocation isKindOfClass:[CLLocation class]]) {
 		self.eventLocation = eventLocation;
 	} else {
 		return nil;
 	}
+	self.eventType = eventType;
 	self.timeStamp = [NSDate date];
 	return self;
 }

@@ -184,6 +184,8 @@
 		0F5B97DF1916E32200C39256 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				0F5B97D81916CE3500C39256 /* QTLocationLogCell.h */,
+				0F5B97D91916CE3500C39256 /* QTLocationLogCell.m */,
 				0F5B97AB1916CD2700C39256 /* Main_iPhone.storyboard */,
 				0F5B97AE1916CD2700C39256 /* Main_iPad.storyboard */,
 			);
@@ -193,8 +195,6 @@
 		0F5B97E01916E34900C39256 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				0F5B97D81916CE3500C39256 /* QTLocationLogCell.h */,
-				0F5B97D91916CE3500C39256 /* QTLocationLogCell.m */,
 				0F5B97B41916CD2700C39256 /* QTMasterViewController.h */,
 				0F5B97B51916CD2700C39256 /* QTMasterViewController.m */,
 				0F5B97B71916CD2700C39256 /* QTDetailViewController.h */,

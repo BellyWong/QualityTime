@@ -29,11 +29,12 @@
 
 - (void)testQtLocationEvent
 {
-	QTLocationEvent *failLocationEvent = [[QTLocationEvent alloc] initWithEventType:kLocationEntered andLocation:nil];
+	NSDate *dateToTest = [NSDate date];
+	QTLocationEvent *failLocationEvent = [[QTLocationEvent alloc] initWithEventType:kLocationEntered atDate:dateToTest forLocation:nil];
 	XCTAssertFalse(failLocationEvent, @"shouldn't return anything if no location");
 	
 	CLLocation *locationToTest = [[CLLocation alloc] init];
-	QTLocationEvent *eventToTest = [[QTLocationEvent alloc] initWithEventType:kLocationEntered andLocation:locationToTest];
+	QTLocationEvent *eventToTest = [[QTLocationEvent alloc] initWithEventType:kLocationEntered atDate:dateToTest forLocation:locationToTest];
 	XCTAssertTrue([eventToTest isKindOfClass:[QTLocationEvent class]], @"returns an object");
 	XCTAssertTrue([eventToTest.timeStamp isKindOfClass:[NSDate class]], @"has a valid timestamp");
 	XCTAssertTrue([eventToTest.eventLocation isEqual:locationToTest], @"returns a valid location");
