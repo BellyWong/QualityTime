@@ -238,9 +238,11 @@
 	EventType type = [[object valueForKey:@"eventType"] intValue];
 	double locLat = [[object valueForKey:@"locationLat"] doubleValue];
 	double locLong = [[object valueForKey:@"locationLong"] doubleValue];
+	NSDate *locDate = [object valueForKey:@"timeStamp"];
 	
 	CLLocation *location = [[CLLocation alloc] initWithLatitude:locLat longitude:locLong];
 	QTLocationEvent *locationEvent = [[QTLocationEvent alloc] initWithEventType:type andLocation:location];
+	locationEvent.timeStamp = locDate;
 	[cell setLocationEvent:locationEvent];
 	[cell setNeedsDisplay];
 }

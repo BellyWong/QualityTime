@@ -19,8 +19,16 @@
 
 - (void)setLocationEvent:(QTLocationEvent *)locationEvent {
 	_locationEvent = locationEvent;
-	[self.titleLabel setText:@"zOMGz!"];
-	[self.subtitleLabel setText:@"its a subtitle!"];
+	[self.titleLabel setText:locationEvent.eventDescription];
+	[self.subtitleLabel setText:[self beautifyDate:locationEvent.timeStamp]];
+}
+
+- (NSString *)beautifyDate:(NSDate *)date {
+	NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+	[dateFormatter setDateStyle:NSDateFormatterMediumStyle];
+	[dateFormatter setTimeStyle:NSDateFormatterMediumStyle];
+	NSString *prettyDate = [dateFormatter stringFromDate:date];
+	return prettyDate;
 }
 
 @end
