@@ -41,6 +41,7 @@
 		case kLocationUnknown:
 			prettyDescription = NSLocalizedString(@"At", @"Shonw to user to denote an ambiguous location event. Ex: Landing at an airport, but not really staying for vacation.");
 		default:
+			prettyDescription = @"";
 			break;
 	}
 	return prettyDescription;
