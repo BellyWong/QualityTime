@@ -37,6 +37,8 @@
 
 
 - (void)initLocationManager {
+	// TODO: Battery conservation
+	[self.locationManager setDesiredAccuracy:kCLLocationAccuracyBest];
 	[self.locationManager startUpdatingLocation];
 }
 
@@ -48,12 +50,17 @@
 }
 
 - (void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations {
-	// !!! Doing this *maybe* helps with background updating.
+	// !!!: This maybe helps with background updating.
 	[self setDeviceLocation:locations.lastObject];
 }
 
 - (CLLocation *)deviceLocation {
 	return self.locationManager.location;
+}
+
+- (void)startLoggingLocations {
+	// TODO: brains
+	return;
 }
 
 @end

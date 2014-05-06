@@ -8,10 +8,14 @@
 
 #import <Foundation/Foundation.h>
 #import <CoreLocation/CoreLocation.h>
+#import "QTUserLocation.h"
 
 @interface QTCoreLocationController : NSObject <CLLocationManagerDelegate>
 
 @property (nonatomic)CLLocation *deviceLocation;
+@property (nonatomic)QTUserLocation *locationToLog;
+
 - (void)initLocationManager;
+- (void)startLoggingLocations;
 
 @end

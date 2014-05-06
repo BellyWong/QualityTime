@@ -10,7 +10,8 @@
 
 @interface QTUserLocation : CLLocation
 
-@property (nonatomic)NSString *description;
-- (QTUserLocation *)initWithDescription:(NSString *)description;
+@property (nonatomic)NSString *locationDescription;
+- (QTUserLocation *)initWithDescription:(NSString *)description
+							 atLocation:(CLLocation *)location;
 
 @end

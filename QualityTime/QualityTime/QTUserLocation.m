@@ -8,21 +8,33 @@
 
 #import "QTUserLocation.h"
 
+@interface QTUserLocation()
+
+@property (readwrite)CLLocationCoordinate2D coordinate;
+
+@end
+
 @implementation QTUserLocation
 
-- (QTUserLocation *)initWithDescription:(NSString *)description {
+@synthesize coordinate;
+
+- (QTUserLocation *)initWithDescription:(NSString *)description
+							 atLocation:(CLLocation *)location {
 	self = [super init];
 	if ([description isKindOfClass:[NSString class]]) {
-		self.description = description;
+		self.locationDescription = description;
+	}
+	if ([location isKindOfClass:[CLLocation class]]) {
+		self.coordinate = location.coordinate;
 	}
 	return self;
 }
 
-- (NSString *)description {
-	if (!_description) {
-		_description = NSLocalizedString(@"Untitled", @"An unnamed location");
+- (NSString *)locationDescription {
+	if (!_locationDescription) {
+		_locationDescription = NSLocalizedString(@"Untitled", @"An unnamed location");
 	}
-	return _description;
+	return _locationDescription;
 }
 
 @end

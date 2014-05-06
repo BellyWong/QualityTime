@@ -11,10 +11,12 @@
 #import "QTLocationEvent.h"
 #import "QTLocationLogCell.h"
 #import "QTCoreLocationController.h"
+#import "QTUserLocation.h"
 
 @interface QTMasterViewController ()
 - (void)configureCell:(QTLocationLogCell *)cell atIndexPath:(NSIndexPath *)indexPath;
 @property (nonatomic)QTCoreLocationController *locationController;
+@property (nonatomic)QTUserLocation *userLocation;
 @end
 
 @implementation QTMasterViewController
@@ -34,7 +36,7 @@
 	// Do any additional setup after loading the view, typically from a nib.
 	self.navigationItem.leftBarButtonItem = self.editButtonItem;
 
-	UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(insertNewObject:)];
+	UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(addButtonPressed:)];
 	self.navigationItem.rightBarButtonItem = addButton;
 	self.detailViewController = (QTDetailViewController *)[[self.splitViewController.viewControllers lastObject] topViewController];
 	[self.locationController initLocationManager];
@@ -52,6 +54,29 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
+#pragma mark - user interaction
+
+- (void)addButtonPressed:(id)sender {
+	UIAlertView *alert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Log this location", @"Title shown to user to confirm the creation of an location to monitor the arrival and departure from")
+													message:NSLocalizedString(@"Arrivals and departures from this location will be logged", @"Shown on a dialog to explain how the app works")
+												   delegate:self
+										  cancelButtonTitle:NSLocalizedString(@"Cancel", nil)
+										  otherButtonTitles:NSLocalizedString(@"Log Location", @"Shown on a confirmation button"), nil];
+	[alert setAlertViewStyle:UIAlertViewStylePlainTextInput];
+	UITextField * alertTextField = [alert textFieldAtIndex:0];
+	[alertTextField setPlaceholder:NSLocalizedString(@"Name this place", @"Placeholder value for user to enter the description of a lcoation.")];
+	[alert show];
+}
+
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
+	if (buttonIndex == 0) {
+		return;
+	}
+	_userLocation = [[QTUserLocation alloc] initWithDescription:[alertView textFieldAtIndex:0].text atLocation:self.locationController.deviceLocation];
+	NSLog(@"_serLocation: %@\n%f\n%f", _userLocation.locationDescription, _userLocation.coordinate.latitude, _userLocation.coordinate.longitude);
+}
+
 
 - (void)insertNewObject:(id)sender
 {
