@@ -10,9 +10,11 @@
 #import "QTDetailViewController.h"
 #import "QTLocationEvent.h"
 #import "QTLocationLogCell.h"
+#import "QTCoreLocationController.h"
 
 @interface QTMasterViewController ()
 - (void)configureCell:(QTLocationLogCell *)cell atIndexPath:(NSIndexPath *)indexPath;
+@property (nonatomic)QTCoreLocationController *locationController;
 @end
 
 @implementation QTMasterViewController
@@ -35,6 +37,14 @@
 	UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(insertNewObject:)];
 	self.navigationItem.rightBarButtonItem = addButton;
 	self.detailViewController = (QTDetailViewController *)[[self.splitViewController.viewControllers lastObject] topViewController];
+	[self.locationController initLocationManager];
+}
+
+- (QTCoreLocationController *)locationController {
+	if (!_locationController) {
+		_locationController = [[QTCoreLocationController alloc] init];
+	}
+	return _locationController;
 }
 
 - (void)didReceiveMemoryWarning
@@ -52,8 +62,13 @@
     // If appropriate, configure the new managed object.
     // Normally you should use accessor methods, but using KVC here avoids the need to add a custom class to the template.
     [newManagedObject setValue:[NSDate date] forKey:@"timeStamp"];
-	[newManagedObject setValue:@(10.25) forKey:@"locationLat"];
-	[newManagedObject setValue:@(10.25) forKey:@"locationLong"];
+	
+	NSNumber *locLat = @(self.locationController.deviceLocation.coordinate.latitude);
+	NSNumber *locLon = @(self.locationController.deviceLocation.coordinate.longitude);
+	[newManagedObject setValue:locLat forKey:@"locationLat"];
+	[newManagedObject setValue:locLon forKey:@"locationLong"];
+	
+	// TODO: eventType logics
 	[newManagedObject setValue:@(1) forKey:@"eventType"];
     
     // Save the context.
