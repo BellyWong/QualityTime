@@ -235,6 +235,12 @@
 - (void)configureCell:(QTLocationLogCell *)cell atIndexPath:(NSIndexPath *)indexPath
 {
     NSManagedObject *object = [self.fetchedResultsController objectAtIndexPath:indexPath];
+	QTLocationEvent *locationEvent = [self locationEventFromManagedObject:object];
+	[cell setLocationEvent:locationEvent];
+	[cell setNeedsDisplay];
+}
+
+- (QTLocationEvent *)locationEventFromManagedObject:(NSManagedObject *)object {
 	EventType type = [[object valueForKey:@"eventType"] intValue];
 	double locLat = [[object valueForKey:@"locationLat"] doubleValue];
 	double locLong = [[object valueForKey:@"locationLong"] doubleValue];
@@ -242,8 +248,7 @@
 	
 	CLLocation *location = [[CLLocation alloc] initWithLatitude:locLat longitude:locLong];
 	QTLocationEvent *locationEvent = [[QTLocationEvent alloc] initWithEventType:type atDate:locDate forLocation:location];
-	[cell setLocationEvent:locationEvent];
-	[cell setNeedsDisplay];
+	return locationEvent;
 }
 
 @end
