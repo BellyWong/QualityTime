@@ -29,6 +29,7 @@
 		0F5B97DA1916CE3500C39256 /* QTLocationLogCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F5B97D91916CE3500C39256 /* QTLocationLogCell.m */; };
 		0F5B97DD1916D50F00C39256 /* QTLocationEvent.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F5B97DC1916D50F00C39256 /* QTLocationEvent.m */; };
 		0FB4467A191871F800E12306 /* QTCoreLocationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FB44679191871F800E12306 /* QTCoreLocationController.m */; };
+		0FB4467D19188ED100E12306 /* QTUserLocation.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FB4467C19188ED100E12306 /* QTUserLocation.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -72,6 +73,8 @@
 		0F5B97DC1916D50F00C39256 /* QTLocationEvent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QTLocationEvent.m; sourceTree = "<group>"; };
 		0FB44678191871F800E12306 /* QTCoreLocationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QTCoreLocationController.h; sourceTree = "<group>"; };
 		0FB44679191871F800E12306 /* QTCoreLocationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QTCoreLocationController.m; sourceTree = "<group>"; };
+		0FB4467B19188ED100E12306 /* QTUserLocation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QTUserLocation.h; sourceTree = "<group>"; };
+		0FB4467C19188ED100E12306 /* QTUserLocation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QTUserLocation.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -178,6 +181,8 @@
 		0F5B97DE1916D51D00C39256 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				0FB4467B19188ED100E12306 /* QTUserLocation.h */,
+				0FB4467C19188ED100E12306 /* QTUserLocation.m */,
 				0F5B97DB1916D50F00C39256 /* QTLocationEvent.h */,
 				0F5B97DC1916D50F00C39256 /* QTLocationEvent.m */,
 			);
@@ -309,6 +314,7 @@
 			files = (
 				0FB4467A191871F800E12306 /* QTCoreLocationController.m in Sources */,
 				0F5B97A61916CD2700C39256 /* main.m in Sources */,
+				0FB4467D19188ED100E12306 /* QTUserLocation.m in Sources */,
 				0F5B97AA1916CD2700C39256 /* QTAppDelegate.m in Sources */,
 				0F5B97DA1916CE3500C39256 /* QTLocationLogCell.m in Sources */,
 				0F5B97B31916CD2700C39256 /* QualityTime.xcdatamodeld in Sources */,
